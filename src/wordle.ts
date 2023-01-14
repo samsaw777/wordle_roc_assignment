@@ -35,6 +35,8 @@ export const useWordle = () => {
     setSelectedKeys,
     turn,
     setTurn,
+    setIsCorrect,
+    isCorrect,
   } = WordleState();
 
   const formatCurrentWord = async () => {
@@ -65,6 +67,9 @@ export const useWordle = () => {
   };
 
   const addToTotal = (currentObject: any) => {
+    if (currentWord === solution) {
+      setIsCorrect(true);
+    }
     totalAttemptsWords[turn] = currentObject;
 
     setTotalAttemptsWords(totalAttemptsWords);
@@ -98,6 +103,9 @@ export const useWordle = () => {
   };
 
   const handleKeyboardPressed = (key: string) => {
+    if (isCorrect) {
+      return;
+    }
     if (turn > 5) {
       return;
     }

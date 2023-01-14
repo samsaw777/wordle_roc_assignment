@@ -15,6 +15,8 @@ export interface Context {
   setSelectedKeys: React.Dispatch<React.SetStateAction<Obj>>;
   setTurn: React.Dispatch<React.SetStateAction<number>>;
   turn: number;
+  setIsCorrect: React.Dispatch<React.SetStateAction<boolean>>;
+  isCorrect: boolean;
 }
 
 export interface UseWordle {

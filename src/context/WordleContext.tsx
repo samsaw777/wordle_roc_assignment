@@ -12,6 +12,8 @@ const WordleContext = createContext<Context>({
   setSelectedKeys: () => {},
   turn: 0,
   setTurn: () => 0,
+  isCorrect: false,
+  setIsCorrect: () => false,
 });
 
 const WordleProvider = ({ children }: any) => {
@@ -20,6 +22,7 @@ const WordleProvider = ({ children }: any) => {
   const [totalAttemptsWords, setTotalAttemptsWords] = useState([...Array(6)]);
   const [selectedKeys, setSelectedKeys] = useState<Obj>({});
   const [turn, setTurn] = useState<number>(0);
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   return (
     <WordleContext.Provider
@@ -33,7 +36,8 @@ const WordleProvider = ({ children }: any) => {
         selectedKeys,
         setSelectedKeys,
         setTurn,
-
+        isCorrect,
+        setIsCorrect,
         turn,
       }}
     >
