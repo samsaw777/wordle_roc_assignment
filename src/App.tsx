@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import { WordleState } from "./context/WordleContext";
+import Header from "./components/Header";
+import Wordle from "./components/Wordle";
+import Keyboard from "./components/keyboard";
 
 function App() {
+  const { setSolution } = WordleState();
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "416fbecb1amsh9d477032fa6414dp11c18ejsn07784bb5eb92",
+        "X-RapidAPI-Host": "wordle-answers-solutions.p.rapidapi.com",
+      },
+    };
+
+    fetch("https://wordle-answers-solutions.p.rapidapi.com/answers", options)
+      .then((response) => response.json())
+      .then((response) => {
+        const randomWordIndex = Math.floor(
+          Math.random() * response.data.length
+        );
+        setSolution(response.data[randomWordIndex].answer);
+      })
+      .catch((err) => console.error(err));
+  }, [setSolution]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <Wordle />
+      <Keyboard />
     </div>
   );
 }
