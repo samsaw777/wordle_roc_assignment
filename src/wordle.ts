@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { WordleState } from "./context/WordleContext";
+import { Obj } from "./Interface/interface";
 
 const checkIfWordExists = async (word: string) => {
   let valid: boolean = false;
@@ -31,8 +32,11 @@ export const useWordle = () => {
     setCurrentWord,
     totalAttemptsWords,
     setTotalAttemptsWords,
+    setSelectedKeys,
+    selectedKeys,
   } = WordleState();
-  // const [currentWord, setCurrentWord] = useState<string>("");
+
+  console.log(selectedKeys);
 
   const [turn, setTurn] = useState<number>(0);
 
@@ -44,7 +48,6 @@ export const useWordle = () => {
       const currentWordArray: any = currentWord.split("").map((l) => {
         return { letter: l, color: "gray" };
       });
-      console.log(currentWordArray);
 
       currentWordArray.forEach((letter: any, index: number) => {
         if (currentSolution[index] === letter.letter) {
@@ -64,12 +67,35 @@ export const useWordle = () => {
     }
   };
 
-  const addToTotal = (currentObejct: any) => {
-    totalAttemptsWords[turn] = currentObejct;
+  const addToTotal = (currentObject: any) => {
+    totalAttemptsWords[turn] = currentObject;
 
     setTotalAttemptsWords(totalAttemptsWords);
 
     setTurn((turn) => turn + 1);
+
+    setSelectedKeys((previousKeys: Obj) => {
+      let newKeys: any = previousKeys === undefined ? {} : { ...previousKeys };
+      currentObject.forEach((each: any) => {
+        const currentColor = newKeys[each.letter];
+
+        if (each.color === "green") {
+          newKeys[each.letter] = "green";
+          return;
+        } else if (each.color === "yellow" && currentColor !== "green") {
+          newKeys[each.letter] = "yellow";
+          return;
+        } else if (
+          each.color === "gray" &&
+          currentColor !== "green" &&
+          currentColor !== "yellow"
+        ) {
+          newKeys[each.letter] = "gray";
+        }
+      });
+
+      return newKeys;
+    });
 
     setCurrentWord("");
   };
@@ -79,8 +105,7 @@ export const useWordle = () => {
       return;
     }
 
-    if (key == "Enter") {
-      console.log("Inside");
+    if (key === "Enter") {
       if (turn > 5) {
         return;
       }
@@ -93,7 +118,7 @@ export const useWordle = () => {
     }
 
     //to cleaar the current word
-    if (key === "Backspace") {
+    if (key === "Back") {
       setCurrentWord((currentWord) => currentWord.slice(0, -1));
       return;
     }

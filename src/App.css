@@ -11,6 +11,13 @@
   display: flex;
   justify-content: center;
 }
+.wordle-div {
+  width: 100%;
+  /* max-width: 450px; */
+  margin-top: 1px;
+  display: flex;
+  justify-content: center;
+}
 
 .keyboard-div > span {
   cursor: pointer;
@@ -22,4 +29,46 @@
   line-height: 50px;
   display: inline-block;
   text-align: center;
+  border-radius: 5px;
+}
+.wordle-div > span {
+  margin: 1px;
+  padding: 5px 16px;
+  width: 30px;
+  height: 50px;
+  /* background-color: #eee; */
+  line-height: 50px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #000;
+}
+
+.keyboard-div > span.green {
+  color: #fff;
+  background-color: #16a34a;
+}
+
+.keyboard-div > span.yellow {
+  color: #fff;
+  background-color: #eab308;
+}
+
+.keyboard-div > span.gray {
+  color: #fff;
+  background-color: #4b5563;
+}
+.wordle-div > span.green {
+  color: #fff;
+  background-color: #16a34a;
+}
+
+.wordle-div > span.yellow {
+  color: #fff;
+  background-color: #eab308;
+}
+
+.wordle-div > span.gray {
+  color: #fff;
+  background-color: #4b5563;
 }

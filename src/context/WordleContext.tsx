@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { Context } from "../Interface/interface";
+import { Context, Obj } from "../Interface/interface";
 
 const WordleContext = createContext<Context>({
   solution: "",
@@ -8,12 +8,15 @@ const WordleContext = createContext<Context>({
   setCurrentWord: () => "",
   totalAttemptsWords: [],
   setTotalAttemptsWords: () => [],
+  selectedKeys: {},
+  setSelectedKeys: () => {},
 });
 
 const WordleProvider = ({ children }: any) => {
   const [solution, setSolution] = useState<string>("");
   const [currentWord, setCurrentWord] = useState<string>("");
   const [totalAttemptsWords, setTotalAttemptsWords] = useState([...Array(6)]);
+  const [selectedKeys, setSelectedKeys] = useState<Obj>({});
 
   return (
     <WordleContext.Provider
@@ -24,6 +27,8 @@ const WordleProvider = ({ children }: any) => {
         setCurrentWord,
         totalAttemptsWords,
         setTotalAttemptsWords,
+        selectedKeys,
+        setSelectedKeys,
       }}
     >
       {children}
