@@ -3,3 +3,23 @@
   flex-direction: column;
   align-items: center;
 }
+
+.keyboard-div {
+  width: 100%;
+  /* max-width: 450px; */
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard-div > span {
+  cursor: pointer;
+  margin: 1px;
+  padding: 5px 16px;
+  width: fit-content;
+  height: 50px;
+  background-color: #eee;
+  line-height: 50px;
+  display: inline-block;
+  text-align: center;
+}

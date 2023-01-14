@@ -4,9 +4,8 @@ import { UseWordle } from "../Interface/interface";
 import { WordleState } from "../context/WordleContext";
 
 const Wordle = () => {
-  const { solution } = WordleState();
-  const { handleKeyPressed, currentWord, totalAttemptsWords }: UseWordle =
-    useWordle();
+  const { solution, currentWord } = WordleState();
+  const { handleKeyPressed, totalAttemptsWords }: any = useWordle();
 
   console.log(totalAttemptsWords);
 

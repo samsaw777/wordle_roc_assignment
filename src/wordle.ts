@@ -25,9 +25,14 @@ const checkIfWordExists = async (word: string) => {
 };
 
 export const useWordle = () => {
-  const { solution } = WordleState();
-  const [currentWord, setCurrentWord] = useState<string>("");
-  const [totalAttemptsWords, setTotalAttemptsWords] = useState([...Array(6)]);
+  const {
+    solution,
+    currentWord,
+    setCurrentWord,
+    totalAttemptsWords,
+    setTotalAttemptsWords,
+  } = WordleState();
+  // const [currentWord, setCurrentWord] = useState<string>("");
 
   const [turn, setTurn] = useState<number>(0);
 
@@ -39,6 +44,7 @@ export const useWordle = () => {
       const currentWordArray: any = currentWord.split("").map((l) => {
         return { letter: l, color: "gray" };
       });
+      console.log(currentWordArray);
 
       currentWordArray.forEach((letter: any, index: number) => {
         if (currentSolution[index] === letter.letter) {
@@ -68,8 +74,13 @@ export const useWordle = () => {
     setCurrentWord("");
   };
 
-  const handleKeyPressed = ({ key, code }: KeyboardEvent) => {
-    if (key === "Enter") {
+  const handleKeyboardPressed = (key: string) => {
+    if (turn > 5) {
+      return;
+    }
+
+    if (key == "Enter") {
+      console.log("Inside");
       if (turn > 5) {
         return;
       }
@@ -81,8 +92,36 @@ export const useWordle = () => {
       formatCurrentWord();
     }
 
+    //to cleaar the current word
+    if (key === "Backspace") {
+      setCurrentWord((currentWord) => currentWord.slice(0, -1));
+      return;
+    }
+
+    //Check of the word are only between a-z
+    if (/^[A-Za-z]$/.test(key)) {
+      console.log(currentWord.length);
+      if (currentWord.length < 5) {
+        setCurrentWord((currentWord) => currentWord + key);
+      }
+    }
+  };
+
+  const handleKeyPressed = ({ key }: KeyboardEvent) => {
     if (turn > 5) {
       return;
+    }
+
+    if (key === "Enter") {
+      if (turn > 5) {
+        return;
+      }
+
+      if (currentWord.length !== 5) {
+        return;
+      }
+
+      formatCurrentWord();
     }
 
     //to cleaar the current word
@@ -107,5 +146,7 @@ export const useWordle = () => {
     handleKeyPressed,
     currentWord,
     totalAttemptsWords,
+    setCurrentWord,
+    handleKeyboardPressed,
   };
 };
