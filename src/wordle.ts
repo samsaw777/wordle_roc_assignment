@@ -1,6 +1,29 @@
 import React, { useState } from "react";
 import { WordleState } from "./context/WordleContext";
 
+const checkIfWordExists = async (word: string) => {
+  let valid: boolean = false;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "416fbecb1amsh9d477032fa6414dp11c18ejsn07784bb5eb92",
+      "X-RapidAPI-Host": "dictionary-by-api-ninjas.p.rapidapi.com",
+    },
+  };
+
+  await fetch(
+    `https://dictionary-by-api-ninjas.p.rapidapi.com/v1/dictionary?word=${word}`,
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      valid = response.valid;
+    })
+    .catch((err) => console.error(err));
+
+  return valid;
+};
+
 export const useWordle = () => {
   const { solution } = WordleState();
   const [currentWord, setCurrentWord] = useState<string>("");
@@ -8,25 +31,31 @@ export const useWordle = () => {
 
   const [turn, setTurn] = useState<number>(0);
 
-  const formatCurrentWord = () => {
-    const currentSolution: any = solution.split("");
-    const currentWordArray: any = currentWord.split("").map((l) => {
-      return { letter: l, color: "gray" };
-    });
+  const formatCurrentWord = async () => {
+    const valid = await checkIfWordExists(currentWord);
 
-    currentWordArray.forEach((letter: any, index: number) => {
-      if (currentSolution[index] === letter.letter) {
-        currentWordArray[index].color = "green";
-        currentSolution[index] = null;
-      } else if (
-        currentSolution.includes(letter.letter) &&
-        letter.color !== "green"
-      ) {
-        currentWordArray[index].color = "yellow";
-      }
-    });
+    if (valid) {
+      const currentSolution: any = solution.split("");
+      const currentWordArray: any = currentWord.split("").map((l) => {
+        return { letter: l, color: "gray" };
+      });
 
-    addToTotal(currentWordArray);
+      currentWordArray.forEach((letter: any, index: number) => {
+        if (currentSolution[index] === letter.letter) {
+          currentWordArray[index].color = "green";
+          currentSolution[index] = null;
+        } else if (
+          currentSolution.includes(letter.letter) &&
+          letter.color !== "green"
+        ) {
+          currentWordArray[index].color = "yellow";
+        }
+      });
+      addToTotal(currentWordArray);
+    } else {
+      console.log("Word Not Found In Our Database!");
+      return;
+    }
   };
 
   const addToTotal = (currentObejct: any) => {

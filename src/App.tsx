@@ -23,6 +23,7 @@ function App() {
         const randomWordIndex = Math.floor(
           Math.random() * response.data.length
         );
+
         setSolution(response.data[randomWordIndex].answer);
       })
       .catch((err) => console.error(err));
