@@ -72,3 +72,14 @@
   color: #fff;
   background-color: #4b5563;
 }
+
+.header {
+  width: 100%;
+  padding: 20px 0px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+.wordle {
+  margin-top: 10px;
+}

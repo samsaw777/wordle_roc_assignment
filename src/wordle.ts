@@ -33,12 +33,9 @@ export const useWordle = () => {
     totalAttemptsWords,
     setTotalAttemptsWords,
     setSelectedKeys,
-    selectedKeys,
+    turn,
+    setTurn,
   } = WordleState();
-
-  console.log(selectedKeys);
-
-  const [turn, setTurn] = useState<number>(0);
 
   const formatCurrentWord = async () => {
     const valid = await checkIfWordExists(currentWord);

@@ -13,6 +13,8 @@ export interface Context {
   totalAttemptsWords: any[];
   selectedKeys: Obj;
   setSelectedKeys: React.Dispatch<React.SetStateAction<Obj>>;
+  setTurn: React.Dispatch<React.SetStateAction<number>>;
+  turn: number;
 }
 
 export interface UseWordle {
