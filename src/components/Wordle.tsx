@@ -4,9 +4,19 @@ import { UseWordle } from "../Interface/interface";
 import { WordleState } from "../context/WordleContext";
 import Row from "./Row";
 
-const Wordle = () => {
-  const { solution, currentWord, turn, totalAttemptsWords, isCorrect } =
-    WordleState();
+interface Props {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Wordle = ({ setOpenModal }: Props) => {
+  const {
+    solution,
+    currentWord,
+    turn,
+    totalAttemptsWords,
+    isCorrect,
+    setIsCorrect,
+  } = WordleState();
   const { handleKeyPressed }: any = useWordle();
 
   console.log(totalAttemptsWords);
@@ -15,10 +25,18 @@ const Wordle = () => {
     window.addEventListener("keydown", handleKeyPressed);
 
     if (turn > 5) {
+      setIsCorrect(false);
+      setTimeout(() => {
+        setOpenModal(true);
+      }, 2000);
       window.removeEventListener("keydown", handleKeyPressed);
     }
 
     if (isCorrect) {
+      setIsCorrect(true);
+      setTimeout(() => {
+        setOpenModal(true);
+      }, 2000);
       window.removeEventListener("keydown", handleKeyPressed);
     }
 
@@ -28,7 +46,7 @@ const Wordle = () => {
   }, [handleKeyPressed]);
   return (
     <div className="wordle">
-      {/* <div>{solution}</div> */}
+      <div>{solution}</div>
       <div>
         {totalAttemptsWords?.map((words: any, index: number) => {
           if (turn === index) {

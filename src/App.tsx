@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { WordleState } from "./context/WordleContext";
 import Header from "./components/Header";
 import Wordle from "./components/Wordle";
 import Keyboard from "./components/keyboard";
+import Modal from "./components/Modal";
 
 function App() {
-  const { setSolution } = WordleState();
+  const { setSolution, turn, isCorrect, solution } = WordleState();
+  const [openModal, setsOpenModal] = useState<boolean>(false);
+
+  console.log(openModal);
 
   useEffect(() => {
     const options = {
@@ -32,10 +36,18 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Wordle />
+      <Wordle setOpenModal={setsOpenModal} />
       <div>
         <Keyboard />
       </div>
+      {openModal && (
+        <Modal
+          turn={turn}
+          isCorrect={isCorrect}
+          solution={solution}
+          setOpenModal={setsOpenModal}
+        />
+      )}
     </div>
   );
 }
