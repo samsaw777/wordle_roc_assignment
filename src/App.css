@@ -52,7 +52,7 @@
   justify-content: center;
 }
 
-.keyboard-div > span {
+.keyboard-div > div {
   cursor: pointer;
   margin: 2px;
   padding: 5px 16px;
@@ -80,33 +80,49 @@
   border: 1px solid var(--grayBorder);
 }
 
-.green {
+.wordle-div > span.green {
   color: var(--white) !important;
-  background-color: var(--green);
-  border: 1px solid transparent !important;
+  --background: #16a34a;
+  --border-color: #16a34a;
+  animation: flip 0.5s ease forwards;
 }
 
-.yellow {
+.wordle-div > span.yellow {
   color: var(--white) !important;
-  background-color: var(--yellow);
-  border: 1px solid transparent !important;
+  --background: #eab308;
+  --border-color: #eab308;
+  animation: flip 0.5s ease forwards;
 }
 
-.gray {
+.wordle-div > span.gray {
   color: var(--white) !important;
-  background-color: var(--gray);
-  border: 1px solid transparent !important;
+  --background: #3a3a3c;
+  --border-color: #3a3a3c;
+  animation: flip 0.5s ease forwards;
 }
 
-.keyboard-div > span.green {
+.wordle-div > span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.wordle-div > span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.wordle-div > span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.wordle-div > span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.keyboard-div > div.green {
   color: var(--white);
   background-color: var(--green);
 }
-.keyboard-div > span.yellow {
+.keyboard-div > div.yellow {
   color: var(--white);
   background-color: var(--yellow);
 }
-.keyboard-div > span.gray {
+.keyboard-div > div.gray {
   color: var(--white);
   background-color: var(--gray);
 }
@@ -174,6 +190,10 @@
   font-size: 20px;
 }
 
+.wordle-div.current > span.filled {
+  animation: bounce 0.1s ease-in-out forwards;
+}
+
 @media screen and (min-width: 200px) and (max-width: 300px) {
   .heading {
     font-size: 10px;
@@ -183,11 +203,11 @@
     font-size: 12px;
   }
 
-  .keyboard-div > span.big-key {
+  .keyboard-div > div.big-key {
     padding: 2px 5px;
   }
 
-  .keyboard-div > span {
+  .keyboard-div > div {
     padding: 2px 6.5px;
   }
 
@@ -214,7 +234,7 @@
     font-size: 15px;
   }
 
-  .keyboard-div > span {
+  .keyboard-div > div {
     padding: 2px 10px;
   }
 
@@ -253,3 +273,42 @@
     font-size: 20px;
   }
 } */
+
+/* animation */
+@keyframes flip {
+  0% {
+    transform: rotateY(0);
+    background: var(--white);
+    border-color: #333;
+  }
+  45% {
+    transform: rotateY(90deg);
+    background: var(--white);
+    border-color: #333;
+  }
+  55% {
+    transform: rotateY(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: var(--white);
+  }
+  100% {
+    transform: rotateY(0);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: var(--white);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}

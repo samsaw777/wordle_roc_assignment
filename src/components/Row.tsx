@@ -14,9 +14,11 @@ const Row = ({ guess, currentWord }: any) => {
   }
   if (currentWord) {
     return (
-      <div className="wordle-div">
+      <div className="wordle-div current">
         {currentWord.split("").map((word: string, index: number) => (
-          <span key={index}>{word}</span>
+          <span key={index} className="filled">
+            {word}
+          </span>
         ))}
         {[...Array(5 - currentWord.length)].map((word: any, index: number) => (
           <span key={index}></span>

@@ -19,13 +19,13 @@ const Keyboard = () => {
           const color = selectedKeys[key];
 
           return (
-            <span
+            <div
               key={index}
               onClick={() => handleKeyboardPressed(key)}
               className={color}
             >
               {key}
-            </span>
+            </div>
           );
         })}
       </div>
@@ -34,13 +34,13 @@ const Keyboard = () => {
           const color = selectedKeys[key];
 
           return (
-            <span
+            <div
               key={index}
               onClick={() => handleKeyboardPressed(key)}
               className={color}
             >
               {key}
-            </span>
+            </div>
           );
         })}
       </div>
@@ -48,13 +48,13 @@ const Keyboard = () => {
         {keyboardKeys[2].map((key: string, index: number) => {
           const color = selectedKeys[key];
           return (
-            <span
+            <div
               key={index}
               onClick={() => handleKeyboardPressed(key)}
               className={`${color} big-key`}
             >
               {key}
-            </span>
+            </div>
           );
         })}
       </div>
