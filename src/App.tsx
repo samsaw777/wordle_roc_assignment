@@ -10,7 +10,7 @@ function App() {
   const { setSolution, turn, isCorrect, solution } = WordleState();
   const [openModal, setsOpenModal] = useState<boolean>(false);
 
-  console.log(openModal);
+  // console.log(openModal);
 
   useEffect(() => {
     const options = {
@@ -27,7 +27,7 @@ function App() {
         const randomWordIndex = Math.floor(
           Math.random() * response.data.length
         );
-        console.log(response.data);
+        // console.log(response.data);
         setSolution(response.data[randomWordIndex].answer);
       })
       .catch((err) => console.error(err));

@@ -30,9 +30,9 @@ const Modal = ({ isCorrect, solution, turn, setOpenModal }: Props) => {
       {isCorrect && (
         <div>
           <MdCancel className="cancel" onClick={() => closeModal()} />
-          <p>Congratulations, You have guessed it correct</p>
+          <p>Congratulations, You got it</p>
           <p className="solution">{solution}</p>
-          <p>You took {turn} to guess the word.</p>
+          <p>You took {turn} guesses.</p>
         </div>
       )}
       {turn > 5 && (

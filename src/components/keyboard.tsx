@@ -12,7 +12,6 @@ const Keyboard = () => {
   const { handleKeyboardPressed }: any = useWordle();
   const { selectedKeys } = WordleState();
 
-  console.log(selectedKeys);
   return (
     <>
       <div className="keyboard-div">

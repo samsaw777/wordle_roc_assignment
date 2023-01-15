@@ -130,7 +130,6 @@ export const useWordle = () => {
 
     //Check of the word are only between a-z
     if (/^[A-Za-z]$/.test(key)) {
-      console.log(currentWord.length);
       if (currentWord.length < 5) {
         setCurrentWord((currentWord) => currentWord + key);
       }

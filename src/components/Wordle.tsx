@@ -19,8 +19,6 @@ const Wordle = ({ setOpenModal }: Props) => {
   } = WordleState();
   const { handleKeyPressed }: any = useWordle();
 
-  console.log(totalAttemptsWords);
-
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPressed);
 
@@ -46,7 +44,7 @@ const Wordle = ({ setOpenModal }: Props) => {
   }, [handleKeyPressed]);
   return (
     <div className="wordle">
-      <div>{solution}</div>
+      {/* <div>{solution}</div> */}
       <div>
         {totalAttemptsWords?.map((words: any, index: number) => {
           if (turn === index) {

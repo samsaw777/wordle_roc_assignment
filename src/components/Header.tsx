@@ -21,7 +21,6 @@ const Header = () => {
 
   useEffect(() => {
     const ltheme = localStorage.getItem("theme");
-    console.log(ltheme);
     if (!ltheme) {
       setTheme("light-theme");
       document.body.className = "light-theme";

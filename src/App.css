@@ -198,6 +198,11 @@
     display: flex;
     align-items: center;
   }
+  .modal > div {
+    width: 90%;
+    margin: 50% auto;
+    padding: 5px;
+  }
 }
 
 @media screen and (min-width: 301px) and (max-width: 460px) {
@@ -221,9 +226,15 @@
     align-items: center;
     justify-content: center;
   }
+
+  .modal > div {
+    width: 90%;
+    margin: 50% auto;
+    padding: 5px;
+  }
 }
 
-@media screen and (min-height: 590px) and (max-height: 699px) {
+/* @media screen and (min-height: 600px) and (max-height: 699px) {
   .wordle-div > span {
     padding: 5px 15px;
     width: 30px;
@@ -241,4 +252,4 @@
   .heading {
     font-size: 20px;
   }
-}
+} */
