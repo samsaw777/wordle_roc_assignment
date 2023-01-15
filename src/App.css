@@ -1,7 +1,40 @@
+.light-theme {
+  --keyboardBg: #d3d6da;
+  --grayBorder: #d3d6da;
+  --black: #000;
+  --white: #fff;
+  --green: #16a34a;
+  --yellow: #eab308;
+  --gray: #4b5563;
+  --application: #fff;
+  --wordleletter: #000;
+  --topborder: #000;
+  --header: #000;
+  --logo: #6b7280;
+}
+
+.dark-theme {
+  --keyboardBg: #818384;
+  --grayBorder: rgba(129, 131, 132, 0.5);
+  --black: #000;
+  --white: #fff;
+  --green: #16a34a;
+  --yellow: #eab308;
+  --gray: #3a3a3c;
+  --application: #121213;
+  --wordleLetter: #fff;
+  --topborder: #3a3a3c;
+  --header: #fff;
+  --logo: #eab308;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  background-color: var(--application);
+  height: 100vh;
 }
 
 .keyboard-div {
@@ -21,65 +54,157 @@
 
 .keyboard-div > span {
   cursor: pointer;
-  margin: 1px;
+  margin: 2px;
   padding: 5px 16px;
   width: fit-content;
   height: 50px;
-  background-color: #eee;
+  color: var(--wordleLetter);
+  background-color: var(--keyboardBg);
   line-height: 50px;
   display: inline-block;
   text-align: center;
   border-radius: 5px;
 }
 .wordle-div > span {
-  margin: 1px;
+  margin: 2px;
   padding: 5px 16px;
-  width: 30px;
+  width: 35px;
   height: 50px;
   /* background-color: #eee; */
+  font-size: 30px;
+  font-weight: bold;
   line-height: 50px;
   display: inline-block;
   text-align: center;
-  border-radius: 5px;
-  border: 2px solid #000;
+  color: var(--wordleLetter);
+  border: 1px solid var(--grayBorder);
+}
+
+.green {
+  color: var(--white) !important;
+  background-color: var(--green);
+  border: 1px solid transparent !important;
+}
+
+.yellow {
+  color: var(--white) !important;
+  background-color: var(--yellow);
+  border: 1px solid transparent !important;
+}
+
+.gray {
+  color: var(--white) !important;
+  background-color: var(--gray);
+  border: 1px solid transparent !important;
 }
 
 .keyboard-div > span.green {
-  color: #fff;
-  background-color: #16a34a;
+  color: var(--white);
+  background-color: var(--green);
 }
-
 .keyboard-div > span.yellow {
-  color: #fff;
-  background-color: #eab308;
+  color: var(--white);
+  background-color: var(--yellow);
 }
-
 .keyboard-div > span.gray {
-  color: #fff;
-  background-color: #4b5563;
-}
-.wordle-div > span.green {
-  color: #fff;
-  background-color: #16a34a;
-}
-
-.wordle-div > span.yellow {
-  color: #fff;
-  background-color: #eab308;
-}
-
-.wordle-div > span.gray {
-  color: #fff;
-  background-color: #4b5563;
+  color: var(--white);
+  background-color: var(--gray);
 }
 
 .header {
   width: 100%;
-  padding: 20px 0px;
+  padding: 10px 0px;
   text-align: center;
-  border-bottom: 1px solid #000;
+  align-items: center;
+  color: var(--header);
+  border-bottom: 0.1px solid var(--topborder);
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  margin-left: 10px;
+
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.logo {
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--logo);
 }
 
 .wordle {
   margin-top: 10px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 300px) {
+  .heading {
+    font-size: 10px;
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .keyboard-div > span.big-key {
+    padding: 2px 5px;
+  }
+
+  .keyboard-div > span {
+    padding: 2px 6.5px;
+  }
+
+  .wordle-div > span {
+    padding: 5px 12px;
+    width: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 301px) and (max-width: 460px) {
+  .heading {
+    font-size: 17px;
+  }
+
+  .logo {
+    font-size: 15px;
+  }
+
+  .keyboard-div > span {
+    padding: 2px 10px;
+  }
+
+  .wordle-div > span {
+    padding: 5px 12px;
+    width: 30px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-height: 590px) and (max-height: 699px) {
+  .wordle-div > span {
+    padding: 5px 15px;
+    width: 30px;
+    height: 40px;
+  }
+
+  .keyboard-div > span {
+    padding: 0px 10px;
+  }
+
+  .header {
+    padding: 2px 0px;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
 }

@@ -23,7 +23,7 @@ function App() {
         const randomWordIndex = Math.floor(
           Math.random() * response.data.length
         );
-
+        console.log(response.data);
         setSolution(response.data[randomWordIndex].answer);
       })
       .catch((err) => console.error(err));
@@ -33,7 +33,9 @@ function App() {
     <div className="app">
       <Header />
       <Wordle />
-      <Keyboard />
+      <div>
+        <Keyboard />
+      </div>
     </div>
   );
 }

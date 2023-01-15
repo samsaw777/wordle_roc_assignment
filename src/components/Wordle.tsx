@@ -28,7 +28,7 @@ const Wordle = () => {
   }, [handleKeyPressed]);
   return (
     <div className="wordle">
-      <div>{solution}</div>
+      {/* <div>{solution}</div> */}
       <div>
         {totalAttemptsWords?.map((words: any, index: number) => {
           if (turn === index) {

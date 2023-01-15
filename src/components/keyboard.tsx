@@ -18,6 +18,7 @@ const Keyboard = () => {
       <div className="keyboard-div">
         {keyboardKeys[0].map((key: string, index: number) => {
           const color = selectedKeys[key];
+
           return (
             <span
               key={index}
@@ -32,6 +33,7 @@ const Keyboard = () => {
       <div className="keyboard-div">
         {keyboardKeys[1].map((key: string, index: number) => {
           const color = selectedKeys[key];
+
           return (
             <span
               key={index}
@@ -50,7 +52,7 @@ const Keyboard = () => {
             <span
               key={index}
               onClick={() => handleKeyboardPressed(key)}
-              className={color}
+              className={`${color} big-key`}
             >
               {key}
             </span>
