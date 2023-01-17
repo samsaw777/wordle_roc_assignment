@@ -1,46 +1,20 @@
-# Getting Started with Create React App
+# Wordle Website Pictures
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/52825565/212983270-62f0b1c4-51d8-47a0-be0d-79b283c443fc.png)
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/52825565/212983350-ac83c41e-1c4a-4c6f-b768-ad2ebd392763.png)
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/52825565/212983461-c4ab4629-2a12-4467-ac39-e33aafab3729.png)
 
-### `npm start`
+![image](https://user-images.githubusercontent.com/52825565/212983595-2d9d3dc1-5b5b-4b1c-a962-f9f4943a16a4.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/52825565/212984285-c5bc0f73-513a-4ed1-94f3-6c5665388893.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/52825565/212984200-44a70bed-b1e6-413a-8c0d-cdfef898c690.png)
 
-### `npm test`
+![image](https://user-images.githubusercontent.com/52825565/212984402-ff011ca7-2017-443b-9bd4-0222616b1331.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/52825565/212984700-8b01a335-d04e-4b42-83af-a3f58a0b3154.png)
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/52825565/212986724-db3d4342-3c01-4066-8a39-384595d37445.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
