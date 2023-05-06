@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <nav className="header">
-      <span className="heading">Wordle Assignment</span>
+      <span className="heading">Wordle Clone</span>
       <span className="logo" onClick={() => changeTheme()}>
         {theme === "dark-theme" ? <MdOutlineLightMode /> : <MdDarkMode />}
       </span>
