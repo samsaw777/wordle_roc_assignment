@@ -25,8 +25,8 @@ function App() {
       try {
       	const response = await fetch(url, options);
       	const result = await response.json();
-      	console.log(result.word);
-        setSolution(result.word)
+      	console.log(result.word.toUpperCase());
+        setSolution(result.word.toUpperCase())
       } catch (error) {
       	console.error(error);
       }
