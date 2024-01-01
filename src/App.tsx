@@ -24,7 +24,7 @@ function App() {
       
       try {
       	const response = await fetch(url, options);
-      	const result = await response.text();
+      	const result = await response.word;
       	console.log(result);
         setSolution(result)
       } catch (error) {
