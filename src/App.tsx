@@ -21,17 +21,22 @@ function App() {
       },
     };
 
-    fetch("https://wordle-answers-solutions.p.rapidapi.com/answers", options)
+    fetch("https://wordle-game-api1.p.rapidapi.com/word", options)
       .then((response) => response.json())
       .then((response) => {
-        const randomWordIndex = Math.floor(
-          Math.random() * response.data.length
-        );
+        console.log(response)
+        setSolution(response.word);
+        // const randomWordIndex = Math.floor(
+        //   Math.random() * response.data.length
+        // );
         // console.log(response.data);
-        setSolution(response.data[randomWordIndex].answer);
+        // setSolution(response.data[randomWordIndex].answer);
       })
       .catch((err) => console.error(err));
+    
   }, [setSolution]);
+
+  console.log(solution)
 
   return (
     <div className="app">
