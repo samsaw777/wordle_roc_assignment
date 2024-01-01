@@ -12,8 +12,8 @@ function App() {
 
   // console.log(openModal);
 
-  useEffect(() => {
-      const url = 'https://wordle-game-api1.p.rapidapi.com/word';
+  const getTodayWord = async () => {
+          const url = 'https://wordle-game-api1.p.rapidapi.com/word';
       const options = {
       	method: 'GET',
       	headers: {
@@ -31,6 +31,10 @@ function App() {
       	console.error(error);
       }
     
+  }
+
+  useEffect(() => {
+      getTodayWord()
   }, [setSolution]);
 
   console.log(solution)
