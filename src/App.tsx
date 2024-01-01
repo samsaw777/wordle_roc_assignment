@@ -13,26 +13,23 @@ function App() {
   // console.log(openModal);
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "416fbecb1amsh9d477032fa6414dp11c18ejsn07784bb5eb92",
-        "X-RapidAPI-Host": "wordle-answers-solutions.p.rapidapi.com",
-      },
-    };
-
-    fetch("https://wordle-game-api1.p.rapidapi.com/word", options)
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response)
-        setSolution(response.word);
-        // const randomWordIndex = Math.floor(
-        //   Math.random() * response.data.length
-        // );
-        // console.log(response.data);
-        // setSolution(response.data[randomWordIndex].answer);
-      })
-      .catch((err) => console.error(err));
+      const url = 'https://wordle-game-api1.p.rapidapi.com/word';
+      const options = {
+      	method: 'GET',
+      	headers: {
+      		'X-RapidAPI-Key': '416fbecb1amsh9d477032fa6414dp11c18ejsn07784bb5eb92',
+      		'X-RapidAPI-Host': 'wordle-game-api1.p.rapidapi.com'
+      	}
+      };
+      
+      try {
+      	const response = await fetch(url, options);
+      	const result = await response.text();
+      	console.log(result);
+        setSolution(result)
+      } catch (error) {
+      	console.error(error);
+      }
     
   }, [setSolution]);
 
